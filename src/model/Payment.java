@@ -1,3 +1,5 @@
+package model;
+
 public class Payment {
     private int requiredAmount;
     private int paidAmount;

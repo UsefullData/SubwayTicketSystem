@@ -1,3 +1,7 @@
+package service;
+
+import model.Station;
+
 /**
  * TicketService: fare calculation + validation.
  */
@@ -5,7 +9,6 @@ public class TicketService {
 
     // You can adjust these easily
     private static final int BASE_FARE = 2;
-    private static final int FARE_PER_STOP = 1;
 
     /**
      * Calculate fare using station names (same format Ticket uses).
@@ -14,7 +17,8 @@ public class TicketService {
         validateStations(startStation, endStation);
 
         int stops = Station.stopsBetween(startStation, endStation);
-        return BASE_FARE + (stops * FARE_PER_STOP);
+        int extra = stops / 4;
+        return BASE_FARE + extra;
     }
 
     private void validateStations(String startStation, String endStation) {
