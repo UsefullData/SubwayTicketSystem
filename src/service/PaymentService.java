@@ -1,3 +1,8 @@
+package service;
+import exceptions.InsufficientFundsException;
+import model.Payment;
+import model.Ticket;
+
 /**
  * PaymentService: creates Payment, checks completion, generates Ticket.
  */

@@ -1,94 +1,103 @@
+package model;
 import java.util.*;
 
-/**
- * Station registry for UI + business logic.
- * UI can use getStationNames() to populate dropdowns.
- * Business logic can use stopsBetween(...) for fare calculations.
- */
 public class Station {
     private final int id;
-    private final String name;
-    private final int index; // position order on the line
+    private final String name;   // what UI shows (and what Ticket stores)
+    private final int index;     // order along the line
 
-    private static final Map<Integer, Station> BY_ID = new HashMap<>();
     private static final Map<String, Station> BY_NAME = new HashMap<>();
     private static final List<Station> ALL = new ArrayList<>();
 
-    // --- Define your stations here (replace with real names) ---
+    // Hangzhou Metro Line 3 (ordered)
     static {
-        register(new Station(1, "A1", 0));
-        register(new Station(2, "A2", 1));
-        register(new Station(3, "A3", 2));
-        register(new Station(4, "A4", 3));
-        register(new Station(5, "A5", 4));
+        register(1,  "Wushanqiancun",         0);
+        register(2,  "West Railway Station",  1);
+        register(3,  "North Longzhou Road",   2);
+        register(4,  "West Wenyi Road",       3);
+        register(5,  "Lvting Road",           4);
+        register(6,  "Quanfeng",              5);
+        register(7,  "Gaojiao Road",          6);
+        register(8,  "Liansheng Road",        7);
+        register(9,  "Hongyuan",              8);
+        register(10, "Shima",                 9);
+        register(11, "Xiaoheshan",            10);
+        register(12, "Pingfeng",              11);
+        register(13, "Liuxia",                12);
+        register(14, "South Xixi Wetland",    13);
+        register(15, "Huawu",                 14);
+        register(16, "Dongyue",               15);
+        register(17, "Gudun Road",            16);
+        register(18, "Gudang Xincun",         17);
+        register(19, "Gudang",                18);
+        register(20, "Huanglong Sports Center", 19);
+        register(21, "Huanglong Cave",        20);
+        register(22, "Wulinmen",              21);
+        register(23, "Wulin Square",          22);
+        register(24, "West Lake Cultural Square", 23);
+        register(25, "Chaowang Road",         24);
+        register(26, "Xiangji Temple",        25);
+        register(27, "Daguan",                26);
+        register(28, "Shanxian",              27);
+        register(29, "Xintiandi Street",      28);
+        register(30, "Qilun Square",          29);
+        register(31, "Huafeng Road",          30);
+        register(32, "Tongxie Road",          31);
+        register(33, "Taohuahu Park",         32);
+        register(34, "Dingqiao",              33);
+        register(35, "Huahe Street",          34);
+        register(36, "Huangheshan",           35);
+        register(37, "Xingqiao",              36);
     }
 
-    public Station(int id, String name, int index) {
+    private Station(int id, String name, int index) {
         this.id = id;
         this.name = name;
         this.index = index;
     }
 
-    private static void register(Station s) {
+    private static void register(int id, String englishName, int index) {
+        Station s = new Station(id, englishName, index);
         ALL.add(s);
-        BY_ID.put(s.id, s);
-        BY_NAME.put(normalize(s.name), s);
+
+        // accept English input from UI
+        BY_NAME.put(normalize(englishName), s);
     }
 
     private static String normalize(String s) {
         return s == null ? "" : s.trim().toLowerCase();
     }
 
-    // ---------------- UI helpers ----------------
-
-    /** For JComboBox: gives ["A1","A2",...] */
+    // ----- UI -----
     public static List<String> getStationNames() {
+        // Choose English list for UI
         List<String> names = new ArrayList<>();
         for (Station s : ALL) names.add(s.name);
         return Collections.unmodifiableList(names);
     }
 
-    /** If UI shows names, you can validate selection quickly */
     public static boolean isValidStationName(String name) {
         return BY_NAME.containsKey(normalize(name));
     }
 
-    // ---------------- Lookups ----------------
-
+    // ----- Business -----
     public static Station fromName(String stationName) {
         Station s = BY_NAME.get(normalize(stationName));
         if (s == null) throw new IllegalArgumentException("Unknown station: " + stationName);
         return s;
     }
 
-    public static Station fromId(int id) {
-        Station s = BY_ID.get(id);
-        if (s == null) throw new IllegalArgumentException("Unknown station id: " + id);
-        return s;
-    }
-
-    public static List<Station> getAllStations() {
-        return Collections.unmodifiableList(ALL);
-    }
-
-    // ---------------- Business helper ----------------
-
-    /** Number of stops between stations (based on index difference) */
     public static int stopsBetween(String startStation, String endStation) {
         Station a = fromName(startStation);
         Station b = fromName(endStation);
         return Math.abs(a.index - b.index);
     }
 
-    // ---------------- Getters ----------------
-
+    // ----- Getters -----
     public int getId() { return id; }
     public String getName() { return name; }
     public int getIndex() { return index; }
 
     @Override
-    public String toString() {
-        // GUI can display Station directly and it’ll show name
-        return name;
-    }
+    public String toString() { return name; }
 }
