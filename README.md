@@ -6,7 +6,7 @@ Built to be **GUI-friendly** ✅ (Swing/JavaFX can call the service methods dire
 ---
 
 ## 📁 Project Folder Structure
-
+``` bash
 SubwayTicketSystem/
 ├─ src/
 │ ├─ exceptions/
@@ -27,7 +27,7 @@ SubwayTicketSystem/
 │ └─ NumberFormatter.java
 ├─ LICENSE
 ├─ README.md
-
+```
 
 ---
 
