@@ -76,10 +76,6 @@ public class Station {
         return Collections.unmodifiableList(names);
     }
 
-    public static boolean isValidStationName(String name) {
-        return BY_NAME.containsKey(normalize(name));
-    }
-
     // ----- Business -----
     public static Station fromName(String stationName) {
         Station s = BY_NAME.get(normalize(stationName));

@@ -2,17 +2,15 @@ package service;
 
 import model.Station;
 
-/**
- * TicketService: fare calculation + validation.
- */
+// TicketService: fare calculation + validation.
+
 public class TicketService {
 
     // You can adjust these easily
     private static final int BASE_FARE = 2;
 
-    /**
-     * Calculate fare using station names (same format Ticket uses).
-     */
+    // Calculate fare using station names (same format Ticket uses).
+
     public int calculateFare(String startStation, String endStation) {
         validateStations(startStation, endStation);
 
@@ -37,9 +35,5 @@ public class TicketService {
             throw new IllegalArgumentException("Start and end station cannot be the same");
         }
 
-        // Validate against station registry (prevents UI typos causing wrong fare)
-        if (!Station.isValidStationName(start) || !Station.isValidStationName(end)) {
-            throw new IllegalArgumentException("Invalid station name(s): " + start + ", " + end);
-        }
     }
 }

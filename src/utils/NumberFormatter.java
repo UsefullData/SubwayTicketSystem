@@ -5,7 +5,7 @@ import java.util.Locale;
 
 public class NumberFormatter {
 
-    // RMB / China locale
+    // RMB / China local
     private static final NumberFormat RMB = NumberFormat.getCurrencyInstance(Locale.CHINA);
 
     public static String formatCurrency(int amount) {
