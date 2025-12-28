@@ -9,24 +9,29 @@ Built to be **GUI-friendly** ✅ (Swing/JavaFX can call the service methods dire
 ``` bash
 SubwayTicketSystem/
 ├─ src/
-│ ├─ exceptions/
-│ │ └─ InsufficientFundsException.java
-│ ├─ main/
-│ │ └─ SubwayTicketSystem.java
-│ ├─ model/
-│ │ ├─ Payment.java
-│ │ ├─ Station.java
-│ │ └─ Ticket.java
-│ ├─ service/
-│ │ ├─ PaymentService.java
-│ │ └─ TicketService.java
-│ ├─ ui/
-│ │ └─ TicketPurchaseUI.java
-│ └─ utils/
-│ ├─ InputValidator.java
-│ └─ NumberFormatter.java
+│  ├─ exceptions/
+│  │  └─ InsufficientFundsException.java
+│  ├─ main/
+│  │  └─ SubwayTicketSystem.java
+│  ├─ model/
+│  │  ├─ Payment.java
+│  │  ├─ Station.java
+│  │  └─ Ticket.java
+│  ├─ service/
+│  │  ├─ PaymentService.java
+│  │  └─ TicketService.java
+│  ├─ ui/
+│  │  ├─ PaymentScreen.java
+│  │  ├─ StationSelectionScreen.java
+│  │  ├─ TicketDisplayScreen.java
+│  │  ├─ TicketPurchaseUI.java
+│  │  └─ WelcomeScreen.java
+│  ├─ utils/
+│  │  ├─ InputValidator.java
+│  │  └─ NumberFormatter.java
 ├─ LICENSE
 ├─ README.md
+
 ```
 
 ---
