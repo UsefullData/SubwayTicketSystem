@@ -23,12 +23,12 @@ public class TicketDisplayScreen extends JPanel {
 
     private void initComponents() {
         JPanel header = new JPanel();
-        header.setBackground(new Color(155, 89, 182)); // Purple header
+        header.setBackground(new Color(242, 242, 242)); 
         header.setPreferredSize(new Dimension(800, 80));
 
         JLabel title = new JLabel("Your Ticket");
-        title.setFont(new Font("Arial", Font.BOLD, 28));
-        title.setForeground(Color.WHITE);
+        title.setFont(new Font("Arial", Font.BOLD, 38));
+        title.setForeground(new Color(50, 50, 50));
         header.add(title);
 
         JPanel content = new JPanel();
@@ -45,17 +45,17 @@ public class TicketDisplayScreen extends JPanel {
         card.setMaximumSize(new Dimension(560, 240));
 
         routeLabel = new JLabel("Route: - → -", SwingConstants.CENTER);
-        routeLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        routeLabel.setFont(new Font("Arial", Font.BOLD, 20    ));
 
         timeLabel = new JLabel("Issued at: -", SwingConstants.CENTER);
-        timeLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        timeLabel.setFont(new Font("Arial", Font.PLAIN, 23));
 
         priceLabel = new JLabel("Price: -", SwingConstants.CENTER);
-        priceLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        priceLabel.setForeground(new Color(41, 128, 185)); // Blue for price
+        priceLabel.setFont(new Font("Arial", Font.BOLD, 25));
+        priceLabel.setForeground(new Color(192, 57, 43)); // Blue for price
 
         changeLabel = new JLabel("Change: -", SwingConstants.CENTER);
-        changeLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        changeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
 
         card.add(routeLabel);
         card.add(timeLabel);
@@ -70,8 +70,8 @@ public class TicketDisplayScreen extends JPanel {
         JButton exit = new JButton("Exit");
 
         for (JButton b : new JButton[]{newTicket, home, exit}) {
-            b.setFont(new Font("Arial", Font.BOLD, 16));
-            b.setPreferredSize(new Dimension(200, 45));
+            b.setFont(new Font("Arial", Font.BOLD, 20));
+            b.setPreferredSize(new Dimension(350, 45));
             b.setFocusPainted(false);
             b.setBorderPainted(false);
             b.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -80,10 +80,10 @@ public class TicketDisplayScreen extends JPanel {
         newTicket.setBackground(new Color(46, 204, 113)); // Green for "Buy Another Ticket"
         newTicket.setForeground(Color.WHITE);
 
-        home.setBackground(new Color(52, 152, 219)); // Blue for "Home"
+        home.setBackground(new Color(192, 57, 43)); // Blue for "Home"
         home.setForeground(Color.WHITE);
 
-        exit.setBackground(new Color(231, 76, 60)); // Red for "Exit"
+        exit.setBackground(new Color(44, 62, 80)); // Red for "Exit"
         exit.setForeground(Color.WHITE);
 
         newTicket.addActionListener(e -> {

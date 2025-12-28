@@ -35,12 +35,12 @@ public class PaymentScreen extends JPanel {
 
     private void initComponents() {
         JPanel header = new JPanel();
-        header.setBackground(new Color(46, 204, 113));
+        header.setBackground(new Color(242, 242, 242));
         header.setPreferredSize(new Dimension(800, 80));
 
         JLabel title = new JLabel("Payment");
-        title.setFont(new Font("Arial", Font.BOLD, 28));
-        title.setForeground(Color.WHITE);
+        title.setFont(new Font("Arial", Font.BOLD, 38));
+        title.setForeground(new Color(50, 50, 50));
         header.add(title);
 
         JPanel content = new JPanel();
@@ -49,7 +49,7 @@ public class PaymentScreen extends JPanel {
         content.setBorder(BorderFactory.createEmptyBorder(30, 80, 30, 80));
 
         JPanel info = new JPanel(new GridLayout(3, 1, 4, 4));
-        info.setBackground(new Color(236, 240, 241));
+        info.setBackground(new Color(242, 242, 242));
         info.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(189, 195, 199), 2),
                 BorderFactory.createEmptyBorder(14, 16, 14, 16)
@@ -57,14 +57,14 @@ public class PaymentScreen extends JPanel {
         info.setMaximumSize(new Dimension(640, 120));
 
         routeLabel = new JLabel("Route: - → -", SwingConstants.CENTER);
-        routeLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        routeLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         requiredLabel = new JLabel("Required: ¥0", SwingConstants.CENTER);
-        requiredLabel.setFont(new Font("Arial", Font.BOLD, 22));
-        requiredLabel.setForeground(new Color(231, 76, 60));
+        requiredLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        requiredLabel.setForeground(new Color(192, 57, 43));
 
         remainingLabel = new JLabel("Remaining: ¥0", SwingConstants.CENTER);
-        remainingLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        remainingLabel.setFont(new Font("Arial", Font.PLAIN, 19));
 
         info.add(routeLabel);
         info.add(requiredLabel);
@@ -75,7 +75,7 @@ public class PaymentScreen extends JPanel {
         status.setMaximumSize(new Dimension(640, 80));
 
         paidLabel = new JLabel("Paid: ¥0", SwingConstants.CENTER);
-        paidLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        paidLabel.setFont(new Font("Arial", Font.BOLD, 30));
         paidLabel.setForeground(new Color(46, 204, 113));
 
         progress = new JProgressBar(0, 100);
@@ -100,10 +100,12 @@ public class PaymentScreen extends JPanel {
         actions.setBackground(Color.WHITE);
 
         confirmButton = createActionButton("Confirm Purchase", new Color(46, 204, 113));
-        JButton cancelButton = createActionButton("Cancel", new Color(231, 76, 60));
+        confirmButton.setForeground(Color.WHITE);
+        confirmButton.setEnabled(false);
+        JButton cancelButton = createActionButton("Cancel", new Color(192, 57, 43));
         JButton backButton = createActionButton("Back", new Color(149, 165, 166));
 
-        confirmButton.setEnabled(false);
+        
 
         confirmButton.addActionListener(e -> completePurchase());
         cancelButton.addActionListener(e -> cancelPayment());
@@ -134,7 +136,7 @@ public class PaymentScreen extends JPanel {
             JButton b = new JButton("¥" + amt);
             b.setFont(new Font("Arial", Font.BOLD, 16));
             b.setForeground(Color.WHITE);
-            b.setBackground(new Color(52, 152, 219));
+            b.setBackground(new Color(44, 62, 80));
             b.setFocusPainted(false);
             b.setBorderPainted(false);
             b.setPreferredSize(new Dimension(100, 45));
@@ -183,6 +185,7 @@ public class PaymentScreen extends JPanel {
 
         if (payment.isPaymentComplete()) {
             confirmButton.setEnabled(true);
+            confirmButton.setForeground(Color.WHITE);
         }
     }
 
