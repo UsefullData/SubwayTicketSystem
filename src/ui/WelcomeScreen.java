@@ -30,7 +30,7 @@ public class WelcomeScreen extends JPanel {
 
         JLabel titleLabel = new JLabel("Hangzhou Metro");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 48));
-        titleLabel.setForeground(new Color(255, 0, 0)); // Red text for the title
+        titleLabel.setForeground(new Color(192, 57, 43)); // Red text for the title
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel subtitleLabel = new JLabel("Line 3 Ticket System");
