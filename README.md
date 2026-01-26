@@ -75,7 +75,7 @@ A huge thanks to the UsefulData team for bringing this project to life:
 * **[Muhammetgylyjov Baygeldi](https://github.com/BaygeldiAza)**
 ---
 
-##📝NOTE
+## 📝NOTE
 
 
-I managed a Java-based project, where my primary role was project coordination and overall management, which provided me with valuable experience as a project manager.
+For this project managed a project, where my primary role was project coordination and overall management, which provided me with valuable experience as a project manager.
