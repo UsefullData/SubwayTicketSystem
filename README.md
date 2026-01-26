@@ -66,7 +66,8 @@ SubwayTicketSystem/
 ---
 
 ## 👥 Collaborators
----
+
+
 A huge thanks to the UsefulData team for bringing this project to life:
 * **[Abdulmajeed Tawfik](https://github.com/Abdulmajeed-Tawfik)**
 * **[ASMAA BEQUI](https://github.com/Asmaabe01)**
@@ -75,4 +76,6 @@ A huge thanks to the UsefulData team for bringing this project to life:
 ---
 
 ##📝NOTE
+
+
 I managed a Java-based project, where my primary role was project coordination and overall management, which provided me with valuable experience as a project manager.
